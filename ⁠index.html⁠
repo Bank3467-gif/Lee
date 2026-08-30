@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generator Dashboard UI</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0b0813;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .card {
+            background: #141026;
+            border: 1px solid #2a224a;
+            border-radius: 20px;
+            padding: 25px;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .header h1 {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            background: linear-gradient(90deg, #a78bfa, #38bdf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 6px;
+        }
+
+        .header p {
+            font-size: 12px;
+            color: #9ca3af;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            color: #d1d5db;
+            margin-bottom: 6px;
+        }
+
+        select, input {
+            width: 100%;
+            background-color: #1a1533;
+            border: 1px solid #2e2454;
+            border-radius: 10px;
+            padding: 12px 14px;
+            color: #ffffff;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        select:focus, input:focus {
+            border-color: #8b5cf6;
+        }
+
+        .row {
+            display: flex;
+            gap: 12px;
+        }
+
+        .col {
+            flex: 1;
+        }
+
+        .delete-group {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn-delete {
+            background-color: #f43f5e;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 0 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-delete:hover {
+            background-color: #e11d48;
+        }
+
+        .btn-generate {
+            width: 100%;
+            background: linear-gradient(135deg, #7c3aed, #3b82f6);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 14px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4);
+            transition: opacity 0.2s;
+        }
+
+        .btn-generate:hover {
+            opacity: 0.9;
+        }
+
+        .btn-reset {
+            width: 100%;
+            background-color: #1a1533;
+            color: #9ca3af;
+            border: 1px solid #2e2454;
+            border-radius: 12px;
+            padding: 12px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 8px;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .btn-reset:hover {
+            background-color: #241d44;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="header">
+            <h1>LICENSE GENERATOR</h1>
+            <p>ระบบสร้าง License Key รูปแบบใหม่</p>
+        </div>
+
+        <div class="form-group">
+            <label>รูปแบบการสร้าง</label>
+            <select>
+                <option>STANDARD - รูปแบบมาตรฐาน (ตัวพิมพ์ใหญ่)</option>
+                <option>PREMIUM - รูปแบบพิเศษ (สุ่มรหัส)</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>ลบีย์ออกจากระบบ</label>
+            <div class="delete-group">
+                <input type="text" placeholder="พิมพ์คีย์ที่ต้องการลบ...">
+                <button class="btn-delete">ลบ</button>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>จำนวนที่ต้องการสร้าง (เช่น 1-500)</label>
+            <input type="number" value="1" min="1" max="500">
+        </div>
+
+        <div class="row">
+            <div class="col form-group">
+                <label>ประเภทเวลา</label>
+                <select>
+                    <option>วัน (Days - D)</option>
+                    <option>ชั่วโมง (Hours - H)</option>
+                    <option>ถาวร (Lifetime)</option>
+                </select>
+            </div>
+            <div class="col form-group">
+                <label>จำนวนเวลา</label>
+                <input type="number" value="1" min="1">
+            </div>
+        </div>
+
+        <button class="btn-generate">✨ สร้างคีย์ (Generate)</button>
+        <button class="btn-reset">รีเซ็ตค่า</button>
+    </div>
+
+</body>
+</html>
